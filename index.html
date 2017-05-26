@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>Alvin Berg gillar bajs</title>
+        <link href="https://fonts.googleapis.com/css?family=Bangers|Bungee+Shade|Creepster|Special+Elite" rel="stylesheet">
+        <style>
+            /* START: liten grej här så att text ser bra ut på mobil */
+            html {
+                font-size: 16px;
+            }
+
+            @media (max-width: 1000px) {
+                html {
+                    font-size: 35px;
+                }
+            }
+            /* SLUT: liten grej här så att text ser bra ut på mobil */
+            h1 {
+                font-family: 'Creepster', cursive;
+            }
+            h2, h3, h4, h5, h6 {
+                font-family: 'Bangers', cursive;
+            }
+            html, body, a, p, div, span {
+                font-family: 'Bungee Shade', cursive;
+            }
+
+
+            h4#mening {
+                font-family: 'Special Elite', cursive;
+                font-weight: normal;
+                font-style: italic;
+                color: gold;
+                background-color: brown;
+
+                padding: 10px;
+            }
+        </style>
+        <script>
+            const del1Lista = [
+                'Alvin',
+                'Julie',
+                'Linde',
+                'Fredrik',
+                'Sara',
+                'Nemo',
+                'Ester',
+                'Anna',
+                'Christer',
+                'Elsa',
+                'Abbe',
+                'Betsy',
+                'Maria',
+                'Eelke',
+                'Sven',
+                'Bosse',
+                'Birgitta',
+                'Sigge',
+                'Kämpe',
+                // läg till om du vill!
+            ];
+            const del2Lista = [
+                'gå på en stor resa',
+                'ridar häst bäst',
+                'har ingen koll på Sven allst',
+                'sätter sin whiskey på sofbordet',
+                'kan äta gris',
+                'vet inte vad de gör där',
+                'undrar och undrar var vi åker till',
+                'sjöng en låt',
+                'sprang iväg och kom aldrig tillbaka',
+                'tittade för länge i solen',
+                'letar efter nycklarna som jag har gömmt',
+                // läg till om du vill!
+            ];
+            const del3Lista = [
+                'i blåa skåpet',
+                'under bordet',
+                'kan man väl säga',
+                'idag eller var det torsdag?',
+                'nufortiden',
+                'som vanligt',
+                'och ingen vet varför',
+                'och ingen ha en aning om det kommer hända igen (vi hoppas inte)',
+                '- typiskt!',
+                'och så vidare',
+                'väldigt för ofta',
+                // läg till om du vill!
+            ];
+
+            function randomItem(lista) {
+                const count = lista.length;
+                const randomNummer = Math.random() * count;
+                const randomNummerUtanDecimal = Math.floor(randomNummer);
+                return lista[randomNummerUtanDecimal];
+            }
+
+            function bygMening() {
+                const del1 = randomItem(del1Lista);
+                const del2 = randomItem(del2Lista);
+                const del3 = randomItem(del3Lista);
+
+                return del1+' '+del2+' '+del3+'.';
+            }
+
+            function visaMening() {
+                const meningHtmlElement = document.getElementById('mening');
+                const mening = bygMening();
+                meningHtmlElement.innerHTML = mening;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>
+            Hallå! Välkommen till 🌴Alvin's hemsida👻
+        </h1>
+        <p>
+            Här kan jag lära mig bygga hemsidor.
+        </p>
+        <h3>Ge mig en mening (tryck på bajs)</h3>
+        <h1 onClick="javascript:visaMening();">💩</h1>
+        <h4 id="mening"></h4>
+    </body>
+</html>
