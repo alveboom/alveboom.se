@@ -1,0 +1,99 @@
+<html>
+  <style>
+    body {
+      margin: 0;
+
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .item {
+      margin: 0;
+      padding: 0;
+      width: 50%;
+      cursor: pointer;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+    .item .text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .item .text .title {
+      font-size: 70px;
+      font-family: sans-serif;
+    }
+    .item0 {
+      background-color: orangered;
+    }
+    .item1 {
+      background-color: gold;
+    }
+    .item2 {
+      background-color: dodgerblue;
+    }
+    .item3 {
+      background-color: lawngreen;
+    }
+  </style>
+  <body class="rotate90">
+    <div class="item item0">
+      <div class="text">
+        <div class="title title0">
+          x
+        </div>
+      </div>
+    </div>
+    <div class="item item1">
+      <div class="text">
+        <div class="title title1">
+          x
+        </div>
+      </div>
+    </div>
+    <div class="item item3">
+      <div class="text">
+        <div class="title title3">
+          x
+        </div>
+      </div>
+    </div>
+    <div class="item item2">
+      <div class="text">
+        <div class="title title2">
+          x
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const bodyParts = [
+      'left leg',
+      'right leg',
+      'left hand',
+      'right hand',
+    ];
+    const titles = [0, 1, 2, 3].map(n => document.getElementsByClassName(`title${n}`)[0]);
+    function setTitle(speed, counter) {
+      const timeout = Math.pow(speed, counter);
+      const previousItem = (counter - 1) % 4;
+      const item = counter % 4;
+      console.log(previousItem);
+      if (previousItem >= 0) {
+        titles[previousItem].innerHTML = '&nbsp;';
+      }
+      const randomBodyPart = Math.floor(Math.random() * 4);
+      titles[item].innerHTML = bodyParts[randomBodyPart];
+
+      if (timeout > 500) return;
+
+      setTimeout(() => {
+        setTitle(speed, counter + 1);
+      }, timeout);
+    }
+    setTitle(1.1, 0);
+  </script>
+</html>
